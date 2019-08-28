@@ -9,6 +9,8 @@ client.once('ready', () => {
     client.user.setActivity(`code guides. Ver:${version}`, {type: 'WATCHING'}).catch(console.error);
 })
 
+//const prefix = '!' <- Located in my config.json
+
 client.on('message', message=> {
 
     let args = message.content.substring(`${prefix}`.length).split(" ");
