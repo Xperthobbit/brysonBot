@@ -5,8 +5,17 @@ const {version, author} = require('./package.json');
 const client = new Discord.Client();
 
 client.once('ready', () => {
-    console.log('Ready!');
+    console.log(' ');
+    console.log('Established connection successfully.');
+    console.log(' ');
+    console.log('Bot name: ' + client.user.tag);
     client.user.setActivity(`code guides. Ver:${version}`, {type: 'WATCHING'}).catch(console.error);
+    console.log("Servers deployed in:")
+    client.guilds.forEach((guild) => {
+        console.log(" - " + guild.name)
+    })
+    console.log(' ');
+    console.log('Ready for tasking!')
 })
 
 //const prefix = '!' <- Located in my config.json
@@ -50,7 +59,7 @@ client.on('message', message=> {
         break;
         case 'vote':
             const pp = new Object()
-            message.channel.send('Please react yes/no!')
+            message.channel.send('Please react ✅ or ❌ to the following question!')
             message.react('✅')
             message.react('❌')
         break;
