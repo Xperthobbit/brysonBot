@@ -33,8 +33,11 @@ client.on('message', message=> {
             if(args[1] === 'version'){
                 message.channel.send(`Currently, I am on version ${version}`)
             }else{
-                message.reply(`I was made by ${author}`)
+                message.reply(`I was made by ${author}! My Github repo is: https://github.com/Xperthobbit/brysonBot`)
             }
+        break;
+        case 'github':
+            message.reply('Here is my git repo: https://github.com/Xperthobbit/brysonBot')
         break;
         case 'version':
             message.channel.send(`Currently, I am on version ${version}`)
