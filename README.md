@@ -1,3 +1,3 @@
-## Bryson's Discord Bot! ![Version](https://img.shields.io/github/package-json/v/xperthobbit/brysonBot?style=flat-square) ![Happy](https://img.shields.io/badge/Happiness-Okay-yellow?style=flat-square&logo=visual-studio-code)
+## Bryson's Discord Bot! ![V](https://img.shields.io/github/package-json/v/xperthobbit/brysonBot?style=flat-square) ![bryson#1337](https://img.shields.io/badge/Happiness-Okay-yellow?style=flat-square&logo=Discord)
 
 Nothing to see yet. Check back later...
