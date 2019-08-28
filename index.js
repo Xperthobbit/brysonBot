@@ -18,6 +18,12 @@ client.once('ready', () => {
     console.log('Ready for tasking!')
 })
 
+client.on("disconnected", () => {
+    console.log("Disconnected!");
+    console.log("Reconnecting...");
+	client.login(token);
+});
+
 //const prefix = '!' <- Located in my config.json
 
 client.on('message', message=> {
@@ -45,6 +51,7 @@ client.on('message', message=> {
         case 'clear':
             if(!args[1]) return message.reply('Please define how many messages you want cleared!')
             if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('Sorry, you need to have permisson: MANAGE_MESSAGES. :frown:')
+            //if(!message.member.roles.find(r => r.name === "Role_name_here")) return message.reply('Sorry, you need to have the role: "role_name_here". :frown:')
             message.channel.bulkDelete(args[1]);
         break;
         case 'embedtest':
