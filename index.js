@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const {Client, Attachment} = require('discord.js');
+const {client, Attachment} = require('discord.js');
 const {prefix, token} = require('./config.json');
 const {version, author} = require('./package.json');
 const client = new Discord.Client();
