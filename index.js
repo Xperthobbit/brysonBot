@@ -79,8 +79,18 @@ client.on('message', message=> {
             message.react('❌')
         break;
         case 'CPA':
-            let Role = message.guild.roles.find(role => role.name === "CPA");
+            let Role = message.guild.roles.find(role => role.name === "CPA"); 
+        if (message.member.roles.has(Role.id)){
+            return message.reply("Sorry you already have that role!")
+        }else{
+            const embed2 = new Discord.RichEmbed()
+            .setColor(0x74f6e8) 
+            .addField('Username', message.author.username)
+            .addField("You've been given the CPA Role!", "Congrats!")
+            .setThumbnail(message.author.avatarURL)
             message.member.addRole(Role);
+            message.reply(embed2);
+        }
         break;
     }
 })
