@@ -84,7 +84,7 @@ client.on('message', message=> {
             return message.reply("Sorry you already have that role!")
         }else{
             const embed2 = new Discord.RichEmbed()
-            .setColor(0x74f6e8) 
+            .setColor(0x5d2079) 
             .addField('Username', message.author.username)
             .addField("You've been given the CPA Role!", "Congrats!")
             .setThumbnail(message.author.avatarURL)
