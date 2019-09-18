@@ -96,12 +96,12 @@ client.on('message', message=> {
         break;
         case 'codify':
             const sayMessage = args.join(" ").slice(7);
-            if (args[1] === '#include' && args[2] === '<stdio.h>'){
-                message.delete().catch(owo=>{});
-                message.channel.sendCode('C', sayMessage)
-            }else{
+            if (args[1] !== '#include' && args[2] !== '<stdio.h>'){
                 message.delete().catch(owo=>{});
                 return message.reply('Please provide the code starting with "#include <stdio.h>" :robot:')
+            }else{
+                message.delete().catch(owo=>{});
+                message.channel.sendCode('C', sayMessage)
             }
         break;
         
