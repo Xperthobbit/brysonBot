@@ -85,6 +85,15 @@ client.on('message', message=> {
             const attachment = new Attachment('https://www.sccpre.cat/png/big/13/139450_4head-png.png')
             message.channel.send(message.author, attachment);
         break;
+        case 'vote':
+            const sayMessage1 = args.join(" ").slice(4);
+            message.delete().catch(owo=>{});
+            const voting = new Discord.RichEmbed()
+            .setTitle("Please vote on the following question with ✅ or ❌")
+            .setDescription(sayMessage1)
+            .setColor('BLUE');
+            message.channel.send(voting)
+        break;    
         case 'CPA':
         case 'cpa':
             let Role = message.guild.roles.find(role => role.name === "CPA"); 
@@ -112,5 +121,24 @@ client.on('message', message=> {
         break;
         }
 });
+
+//This is for the voting command. Pls ignore.
+client.on('message', message=> {
+    if (message.author.bot){
+
+        if(message.embeds){
+
+            const vote = message.embeds.find(msg => msg.title === 'Please vote on the following question with ✅ or ❌');
+            if(vote){
+                vote.message.react('✅')
+                .then(vote.message.react('❌'))
+                .catch(err => console.error);
+            }
+
+        }
+        return;
+    }
+});
+
 
 client.login(token);
