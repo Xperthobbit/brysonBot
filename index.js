@@ -19,6 +19,16 @@ client.once('ready', () => {
     console.log('Ready for tasking!')
 })
 
+client.on("guildCreate", guild => {
+    console.log(`New Server joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+    client.user.setActivity(`Currently active in ${client.guilds.size} servers`);
+  });
+  
+client.on("guildDelete", guild => {
+    console.log(`I have been kicked from: ${guild.name} (id: ${guild.id})`);
+    client.user.setActivity(`Currently active in ${client.guilds.size} servers`);
+  });
+
 client.on("disconnected", () => {
     console.log("Disconnected!");
     console.log("Reconnecting...");
@@ -56,7 +66,8 @@ client.on('message', message=> {
             if(!args[1] || args[1] < 2 || args[1] > 100) return message.reply('Please define how many messages you want cleared!(Max 100!)')
             if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('Sorry, you need to have permisson: MANAGE_MESSAGES. :frown:')
             //if(!message.member.roles.find(r => r.name === "Role_name_here")) return message.reply('Sorry, you need to have the role: "role_name_here". :frown:')
-            message.channel.bulkDelete(args[1]);
+            message.channel.bulkDelete(args[1])
+                .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
         break;
         //Testing the embed func
         case 'embedtest':
