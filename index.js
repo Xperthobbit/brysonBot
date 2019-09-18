@@ -40,6 +40,7 @@ client.on("disconnected", () => {
 client.on('message', message=> {
 
     let args = message.content.substring(`${prefix}`.length).split(" ");
+    
     if(message.content.indexOf(`${prefix}`) !== 0) return;
 
     switch (args[0]){
@@ -84,13 +85,6 @@ client.on('message', message=> {
             const attachment = new Attachment('https://www.sccpre.cat/png/big/13/139450_4head-png.png')
             message.channel.send(message.author, attachment);
         break;
-        //Voting function
-        case 'vote':
-            const pp = new Object()
-            message.channel.send('Please react ✅ or ❌ to the following question!')
-            message.react('✅')
-            message.react('❌')
-        break;
         case 'CPA':
         case 'cpa':
             let Role = message.guild.roles.find(role => role.name === "CPA"); 
@@ -116,8 +110,7 @@ client.on('message', message=> {
                 message.channel.sendCode('C', sayMessage)
             }
         break;
-        
-    }
-})
+        }
+});
 
 client.login(token);
