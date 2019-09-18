@@ -15,6 +15,7 @@ client.once('ready', () => {
         console.log(" - " + guild.name)
     })
     console.log(' ');
+    console.log(`Version: ${version}`)
     console.log('Ready for tasking!')
 })
 
