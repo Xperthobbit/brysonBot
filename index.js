@@ -29,11 +29,12 @@ client.on("disconnected", () => {
 client.on('message', message=> {
 
     let args = message.content.substring(`${prefix}`.length).split(" ");
+    if(message.content.indexOf(`${prefix}`) !== 0) return;
 
     switch (args[0]){
         case 'ping':
-            message.reply('pong!');
-            //message.channel.send for just saying without @ing
+        message.channel.send('Pong!')
+        //message.channel.send for just saying without @ing
         break;
         case 'info':
             if(args[1] === 'version'){
@@ -51,7 +52,7 @@ client.on('message', message=> {
         break;
         //Clearing chat function 
         case 'clear':
-            if(!args[1]) return message.reply('Please define how many messages you want cleared!')
+            if(!args[1] || args[1] < 2 || args[1] > 100) return message.reply('Please define how many messages you want cleared!(Max 100!)')
             if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('Sorry, you need to have permisson: MANAGE_MESSAGES. :frown:')
             //if(!message.member.roles.find(r => r.name === "Role_name_here")) return message.reply('Sorry, you need to have the role: "role_name_here". :frown:')
             message.channel.bulkDelete(args[1]);
@@ -79,6 +80,7 @@ client.on('message', message=> {
             message.react('❌')
         break;
         case 'CPA':
+        case 'cpa':
             let Role = message.guild.roles.find(role => role.name === "CPA"); 
         if (message.member.roles.has(Role.id)){
             return message.reply("Sorry you already have that role!")
@@ -92,6 +94,15 @@ client.on('message', message=> {
             message.reply(embed2);
         }
         break;
+        case 'codify':
+            const sayMessage = args.join(" ").slice(7);
+            message.delete().catch(O_o=>{});
+            if(!`#include <stdio.h>`) 
+                return message.reply('Please provide the code starting with "#include <stdio.h>" :robot:')
+            else
+            message.channel.sendCode('C', sayMessage)
+        break;
+        
     }
 })
 
