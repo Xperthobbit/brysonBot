@@ -114,10 +114,13 @@ client.on('message', message=> {
             if (args[1] !== '#include' && args[2] !== '<stdio.h>'){
                 message.delete().catch(owo=>{});
                 return message.reply('Please provide the code starting with "#include <stdio.h>" :robot:')
+            }else if(message.author.bot){
+                return;
             }else{
                 message.delete().catch(owo=>{});
+                message.reply(' here is your codified code! :robot:')
                 message.channel.sendCode('C', sayMessage)
-            }
+        }
         break;
         }
 });
