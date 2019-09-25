@@ -9,6 +9,7 @@
   "author": "Bryson Gariepy",
   "license": "GNU GENERAL PUBLIC LICENSE",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "eslint": "^6.4.0"
   }
 }
