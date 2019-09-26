@@ -149,6 +149,7 @@ client.on('message', message=> {
             .setTitle('Minecraft Server Status:')
             .setFooter('Server hosted by Bryson', 'https://i.imgur.com/lDQnLfc.jpg')
             .setDescription(status)
+            .setImage('https://mcapi.us/server/image?ip=cantfraglike.me')
             .addField('Status Requester:', message.author, true);
             message.channel.send(embed3);
             });
