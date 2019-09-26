@@ -139,7 +139,7 @@ client.on('message', message=> {
             if(body.online) {
                 status = `Server: **${mcIP}** is currently __online__! `;
                 if(body.players.now){
-                    status += ' ' + body.players.now + ' are playing right now!';
+                    status += ' ' + body.players.now + ' people are playing right now!';
                     } else {
                     status += ' No one is playing right now...'
                 }
@@ -149,7 +149,7 @@ client.on('message', message=> {
             .setTitle('Minecraft Server Status:')
             .setFooter('Server hosted by Bryson', 'https://i.imgur.com/lDQnLfc.jpg')
             .setDescription(status)
-            .setImage('https://mcapi.us/server/image?ip=cantfraglike.me')
+            //.setImage(`https://mcapi.us/server/image?ip=${mcIP}`)
             .addField('Status Requester:', message.author, true);
             message.channel.send(embed3);
             });
