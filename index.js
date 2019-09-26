@@ -122,6 +122,37 @@ client.on('message', message=> {
                 message.channel.sendCode('C', sayMessage)
         }
         break;
+        case 'Minecraft':
+        case 'minecraft':
+        case 'status':
+            message.delete().catch(owo=>{});
+            var request = require("request");
+            var mcIP = "cantfraglike.me";       //change me to your server's ip address!
+            var url = "https://mcapi.us/server/status?ip=" + mcIP;
+            request(url, function(err, response, body) {
+                if(err){
+                    console.log(err);
+                    return msg.reply('Something went wrong... :robot:');
+                }
+            body = JSON.parse(body);
+            var status = `Server: **${mcIP}** is currently __offline__. Probably down for maintenance...`;
+            if(body.online) {
+                status = `Server: **${mcIP}** is currently __online__! `;
+                if(body.players.now){
+                    status += ' ' + body.players.now + ' are playing right now!';
+                    } else {
+                    status += ' No one is playing right now...'
+                }
+            }
+            const embed3 = new Discord.RichEmbed()
+            .setColor(0x684dad)
+            .setTitle('Minecraft Server Status:')
+            .setFooter('Server hosted by Bryson', 'https://i.imgur.com/lDQnLfc.jpg')
+            .setDescription(status)
+            .addField('Status Requester:', message.author, true);
+            message.channel.send(embed3);
+            });
+        break;
         }
 });
 
