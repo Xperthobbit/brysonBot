@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const {Client, Attachment} = require('discord.js');
-const {prefix, token} = require('./config.json');
+const {prefix, token, IP, loginacct, pw} = require('./config.json');
 const {version, author} = require('./package.json');
 const client = new Discord.Client();
 
@@ -97,9 +97,9 @@ client.on('message', message=> {
         case 'CPA':
         case 'cpa':
             let Role = message.guild.roles.find(role => role.name === "CPA"); 
-        if (message.member.roles.has(Role.id)){
-            return message.reply("Sorry you already have that role!")
-        }else{
+            if (message.member.roles.has(Role.id)){
+                return message.reply("Sorry you already have that role!")
+            }else{
             const embed2 = new Discord.RichEmbed()
             .setColor(0x5d2079) 
             .addField('Username', message.author.username)
@@ -127,9 +127,9 @@ client.on('message', message=> {
         case 'status':
             message.delete().catch(owo=>{});
             var request = require("request");
-            var mcIP = "cantfraglike.me";       //change me to your server's ip address!
-            var url = "https://mcapi.us/server/status?ip=" + mcIP;
-            request(url, function(err, response, body) {
+            var mcIP = `${IP}`;       //change me to your server's ip address!
+            var urlmc = "https://mcapi.us/server/status?ip=" + mcIP;
+            request(urlmc, function(err, response, body) {
                 if(err){
                     console.log(err);
                     return msg.reply('Something went wrong... :robot:');
@@ -154,7 +154,8 @@ client.on('message', message=> {
             message.channel.send(embed3);
             });
         break;
-        }
+    }
+        
 });
 
 //This is for the voting command. Pls ignore.

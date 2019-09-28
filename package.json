@@ -1,6 +1,6 @@
 {
   "name": "discordbot",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Bryson's Discord Bot",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "GNU GENERAL PUBLIC LICENSE",
   "dependencies": {
     "discord.js": "^11.5.1",
+    "electron": "^6.0.10",
     "eslint": "^6.4.0",
     "request": "^2.88.0"
   }
