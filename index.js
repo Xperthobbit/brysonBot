@@ -154,6 +154,8 @@ client.on('message', message=> {
             message.channel.send(embed3);
             });
         break;
+        case 'membercount':
+            message.reply(`Total members: ${message.guild.memberCount}`);
     }
         
 });
