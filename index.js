@@ -96,6 +96,8 @@ client.on('message', message=> {
         break;    
         case 'CPA':
         case 'cpa':
+        case 'CPD':
+        case 'cpd':
             let Role = message.guild.roles.find(role => role.name === "CPA"); 
             if (message.member.roles.has(Role.id)){
                 return message.reply("Sorry you already have that role!")
