@@ -113,12 +113,16 @@ client.on('message', message=> {
         break;
         case 'codify':
             const sayMessage = args.join(" ").slice(7);
-            if (args[1] !== '#include' && args[2] !== '<stdio.h>'){
-                message.delete().catch(owo=>{});
-                return message.reply('Please provide the code starting with "#include <stdio.h>" :robot:')
-            }else if(message.author.bot){
+            //if (args[1] !== '#include' && args[2] !== '<stdio.h>'){
+            //    message.delete().catch(owo=>{});
+            //    return message.reply('Please provide the code starting with "#include <stdio.h>" :robot:')
+            if(message.author.bot){
                 return;
-            }else{
+	    }else if{
+            }else{(!args[1] || args[1].length === 0 ){
+                message.delete().catch(owo=>{});
+                return message.reply('Please provide the code!  :robot:')
+	    }else{
                 message.delete().catch(owo=>{});
                 message.reply(' here is your codified code! :robot:')
                 message.channel.sendCode('C', sayMessage)
