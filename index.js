@@ -118,8 +118,7 @@ client.on('message', message=> {
             //    return message.reply('Please provide the code starting with "#include <stdio.h>" :robot:')
             if(message.author.bot){
                 return;
-	    }else if{
-            }else{(!args[1] || args[1].length === 0 ){
+	    }else if (!args[1] || args[1].length === 0 ){
                 message.delete().catch(owo=>{});
                 return message.reply('Please provide the code!  :robot:')
 	    }else{
