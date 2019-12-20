@@ -98,14 +98,14 @@ client.on('message', message=> {
         case 'cpa':
         case 'CPD':
         case 'cpd':
-            let Role = message.guild.roles.find(role => role.name === "CPA"); 
+            let Role = message.guild.roles.find(role => role.name === "CPA/D"); 
             if (message.member.roles.has(Role.id)){
                 return message.reply("Sorry you already have that role!")
             }else{
             const embed2 = new Discord.RichEmbed()
             .setColor(0x5d2079) 
             .addField('Username', message.author.username)
-            .addField("You've been given the CPA Role!", "Congrats!")
+            .addField("You've been given the CPA/D Role!", "Congrats!")
             .setThumbnail(message.author.avatarURL)
             message.member.addRole(Role);
             message.reply(embed2);
