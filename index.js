@@ -124,7 +124,7 @@ client.on('message', message=> {
 	    }else{
                 message.delete().catch(owo=>{});
                 message.reply(' here is your codified code! :robot:')
-                message.channel.sendCode('C', sayMessage)
+                message.channel.sendCode('cpp', sayMessage)
         }
         break;
         case 'Minecraft':
