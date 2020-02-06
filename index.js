@@ -162,6 +162,7 @@ client.on('message', message=> {
         case 'membercount':
             var list = [];
             message.guild.members.forEach(member => list.push(member.user.username));
+            list.sort();
             message.reply(`Total members: ${message.guild.memberCount}`);
             const embed4 = new Discord.RichEmbed()
             .setColor(0x684dad)
