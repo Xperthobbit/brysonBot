@@ -160,9 +160,16 @@ client.on('message', message=> {
             });
         break;
         case 'membercount':
+            var list = [];
+            message.guild.members.forEach(member => list.push(member.user.username));
             message.reply(`Total members: ${message.guild.memberCount}`);
-    }
-        
+            const embed4 = new Discord.RichEmbed()
+            .setColor(0x684dad)
+            .setTitle('Member List:')
+            .setDescription(list);
+            message.channel.send(embed4);
+        break;
+    };  
 });
 
 //This is for the voting command. Pls ignore.
