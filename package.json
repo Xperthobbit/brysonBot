@@ -1,6 +1,6 @@
 {
   "name": "discordbot",
-  "version": "2.3.0",
+  "version": "3.0.1",
   "description": "Bryson's Discord Bot",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "discord.js": "^11.5.1",
     "electron": "^6.0.10",
     "eslint": "^6.4.0",
+    "prettier": "^1.19.1",
     "request": "^2.88.0"
   }
 }
