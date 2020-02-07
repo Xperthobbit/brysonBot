@@ -5,4 +5,18 @@
 
 **Check out the [Install guide](https://github.com/Xperthobbit/brysonBot/wiki/Installation-Guide) for info on how to build it yourself.**
 
+## [Add the bot to your server if you'd like :)](https://discordapp.com/api/oauth2/authorize?client_id=613143901087334422&permissions=268889088&scope=bot 'Click me!')
+
+**Current Commands:**
+* CPA
+* CPD
+* clear
+* codify
+* github
+* info
+* members
+* ping
+* version
+* vote
+
 </div>
