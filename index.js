@@ -141,7 +141,8 @@ client.on('message', message => {
         'version',
         'github',
         'info',
-        'ping'
+        'ping',
+        'vibecheck'
       ]; // There's gotta be an easier way to find all the cases...
       listCommands.sort();
       const embed5 = new Discord.RichEmbed()
@@ -149,6 +150,17 @@ client.on('message', message => {
         .setTitle('Commands:')
         .setDescription(listCommands);
       message.channel.send(embed5).catch(owo => {});
+      break;
+
+    case 'vibecheck':
+      if (!message.mentions.users.size){
+        return message.reply('Please specify users to vibecheck');
+      }
+      const List = message.mentions.users.map(user => {
+        return `${user}`;
+      });
+     message.channel.send(`/////// ${List} ! You've just been 😎 **VIBE CHECKED** 😎 by ${message.author} \\\\\\\\\\\\\\\\\\\\\\\\\\\\`);
+      break;
   }
 });
 
@@ -169,5 +181,9 @@ client.on('message', message => {
     return;
   }
 });
+// Grab emojis by ID
+function emoji(id){
+  return client.emojis.get(id);
+};
 
 client.login(token);
